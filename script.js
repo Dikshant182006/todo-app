@@ -42,7 +42,7 @@ todo.addEventListener("click", (e) => {
     }
 });
 
-// click to enter for click add
+// EVENT: Handle 'Enter' key for better User Experience
 input.addEventListener("keydown", (event) => {
     if(event.key === "Enter") {
         addbtn.click();
