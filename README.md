@@ -1,17 +1,27 @@
-# 📝 Todo List Project
+# 📝 Todo App
 
-Developed a dynamic Todo List application using JavaScript, focusing on real-time DOM updates and efficient state management. 
+A simple and interactive **Todo List Application** built using **HTML, CSS, and JavaScript**.  
+This project allows users to manage their daily tasks by adding, completing, deleting, and clearing tasks.  
+The app also uses **Local Storage** to save tasks so they remain even after refreshing the page.
+
+---
 
 ## 🚀 Features
-* **Task Creation:** Add new items instantly.
-* **Completion Toggling:** Click checkboxes to mark tasks as done with a line-through.
-* **Delete Functionality:** Remove tasks using efficient **Event Delegation**.
-* **Keyboard Support:** Press 'Enter' to add tasks quickly.
 
-## 🛠️ Tech Stack
-* HTML5
-* CSS3
-* Vanilla JavaScript
+- ➕ Add new tasks
+- ✅ Mark tasks as completed with a checkbox
+- ❌ Delete individual tasks
+- 🧹 Clear all tasks with one click
+- 📊 Live task counter
+- 💾 Save tasks using **Local Storage**
+- ⌨️ Press **Enter** to quickly add a task
+- 🎨 Simple and clean user interface
 
-## 🧠 Learning Outcomes
-Strengthened understanding of JavaScript fundamentals including arrays, event listeners, and UI logic.
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5** – Structure of the application
+- **CSS3** – Styling and layout
+- **JavaScript (Vanilla JS)** – Application logic and DOM manipulation
+- **Local Storage API** – Data persistence in the browser
