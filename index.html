@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List App</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="container">
-        <h1>Simple Todo List</h1>
-        <p>Welcome to this todo list. Double click to edit the todo</p>
+        <div class="flex">
+            <h1>Todo App</h1>
+            <input type="text" id="input" placeholder="Add a new todo">
+            <button id="addbtn">Add</button>
 
-        <div class="place">
-            <input type="text" id="inputbtn" placeholder="Enter a todo and press add..">
-            <button id="add-btn">Add</button>
+            <div class="todo">
+                <ul id="todo-list">
+                    
+                </ul>
+            </div>
+
+            <div class="counter">
+                <p>You have <span id="count">0</span> pending tasks</p>
+                <button id="clear">Clear All</button>
+            </div>
         </div>
-        
-        <div id="todo">
-            <ul id="todo-list">
-                
-            </ul>
-        </div>
-    </div>  
 
     <script src="script.js"></script>
 </body>

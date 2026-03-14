@@ -1,50 +1,75 @@
-// DOM ELEMENTS
-const input = document.getElementById("inputbtn");
-const todo = document.getElementById("todo-list");
-const addbtn = document.getElementById("add-btn");
+const todoList = document.getElementById("todo-list");
+const addbtn = document.getElementById("addbtn");
+const input = document.getElementById("input");
+const counter = document.getElementById("count");
+const clear = document.getElementById("clear");
 
-// Add new todo
+// Helper to keep display and storage in sync
+function updateUI() {
+  const currentCount = todoList.children.length;
+  counter.textContent = currentCount;
+  localStorage.setItem("todos", todoList.innerHTML);
+  localStorage.setItem("todoCount", currentCount);
+}
+
+// Add Task
 addbtn.addEventListener("click", () => {
-    const taskText = input.value;
-    if (!taskText) return; // don't add empty tasks
-
-    const uniqueId = "checkbox-" + Date.now(); // unique checkbox id
-
-    todo.innerHTML += `
-        <li>
-        <input type="checkbox" id="${uniqueId}">
-        <div id="first">
-            <label id="task1" for="${uniqueId}">${taskText}</label>
-            </div>
-            <button class="delete-btn">Delete</button>
-        </li>
-    `;
-
-    input.value = ""; // clear input
+  if (input.value === "") return;
+  
+  const li = document.createElement("li");
+  const unique = Date.now();
+  li.innerHTML = `
+    <input type="checkbox" id="${unique}">
+    <label for="${unique}" class="task-label">${input.value}</label>
+    <button class="deletebtn">Delete</button>
+  `;
+  
+  todoList.appendChild(li);
+  input.value = "";
+  updateUI();
 });
 
-// Delete task using event delegation
-todo.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON" && e.target.classList.contains("delete-btn")) {
-        e.target.parentElement.remove();
-    }
+// Delete & Checkbox Logic
+todoList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deletebtn")) {
+    e.target.parentElement.remove();
+    updateUI();
+  }
+
+  if (e.target.type === "checkbox") {
+    const label = e.target.nextElementSibling;
+    e.target.checked 
+      ? label.style.textDecoration = "line-through" 
+      : label.style.textDecoration = "none";
+    
+    // Save the checked state in the HTML string
+    e.target.checked 
+      ? e.target.setAttribute("checked", "true") 
+      : e.target.removeAttribute("checked");
+      
+    updateUI();
+  }
 });
 
-// Click to the checkbox
-todo.addEventListener("click", (e) => {
-    if (e.target.tagName === "INPUT" && e.target.type === "checkbox") {
-        const label = e.target.nextElementSibling; // the label next to the checkbox
-        if (e.target.checked) {
-            label.style.textDecoration = "line-through"; // mark as done
-        } else {
-            label.style.textDecoration = "none"; // unmark
-        }
-    }
+// Clear All
+clear.addEventListener("click", () => {
+  if (confirm("Delete all tasks?")) {
+    todoList.innerHTML = "";
+    updateUI();
+  }
 });
 
-// EVENT: Handle 'Enter' key for better User Experience
-input.addEventListener("keydown", (event) => {
-    if(event.key === "Enter") {
+// Enter key 
+input.addEventListener("keydown", (e) => {
+    if(e.key === "Enter") {
         addbtn.click();
     }
 })
+
+// Load Data on start
+function getData() {
+  todoList.innerHTML = localStorage.getItem("todos") || "";
+  counter.textContent = todoList.children.length;
+}
+
+getData();
