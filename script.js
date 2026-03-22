@@ -9,21 +9,23 @@ function updateUI() {
   const currentCount = todoList.children.length;
   counter.textContent = currentCount;
   localStorage.setItem("todos", todoList.innerHTML);
-  localStorage.setItem("todoCount", currentCount);
 }
 
 // Add Task
 addbtn.addEventListener("click", () => {
-  if (input.value === "") return;
-  
+  const taskText = input.value.trim();
+  if (taskText === "") return;
+
   const li = document.createElement("li");
   const unique = Date.now();
+
   li.innerHTML = `
     <input type="checkbox" id="${unique}">
-    <label for="${unique}" class="task-label">${input.value}</label>
+    <span class="task-label">${taskText}</span>
+    <img src="img/edit.svg" alt="edit" width="20px" class="edit">
     <button class="deletebtn">Delete</button>
   `;
-  
+
   todoList.appendChild(li);
   input.value = "";
   updateUI();
@@ -38,15 +40,13 @@ todoList.addEventListener("click", (e) => {
 
   if (e.target.type === "checkbox") {
     const label = e.target.nextElementSibling;
-    e.target.checked 
-      ? label.style.textDecoration = "line-through" 
-      : label.style.textDecoration = "none";
-    
-    // Save the checked state in the HTML string
-    e.target.checked 
-      ? e.target.setAttribute("checked", "true") 
+
+    label.style.textDecoration = e.target.checked ? "line-through" : "none";
+
+    e.target.checked
+      ? e.target.setAttribute("checked", "")
       : e.target.removeAttribute("checked");
-      
+
     updateUI();
   }
 });
@@ -59,12 +59,31 @@ clear.addEventListener("click", () => {
   }
 });
 
-// Enter key 
+// Edit the Todo
+todoList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("edit")) {
+    const label = e.target.parentElement.querySelector(".task-label");
+
+    label.contentEditable = true;
+    label.focus();
+
+    label.onblur = () => {
+      if (label.textContent.trim() === "") {
+        label.textContent = "Untitled Task";
+      }
+
+      label.contentEditable = false;
+      updateUI();
+    };
+  }
+});
+
+// Enter key
 input.addEventListener("keydown", (e) => {
-    if(e.key === "Enter") {
-        addbtn.click();
-    }
-})
+  if (e.key === "Enter") {
+    addbtn.click();
+  }
+});
 
 // Load Data on start
 function getData() {

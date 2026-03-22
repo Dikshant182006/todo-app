@@ -1,27 +1,58 @@
 # 📝 Todo App
 
-A simple and interactive **Todo List Application** built using **HTML, CSS, and JavaScript**.  
-This project allows users to manage their daily tasks by adding, completing, deleting, and clearing tasks.  
-The app also uses **Local Storage** to save tasks so they remain even after refreshing the page.
+A clean and interactive **Todo List Application** built using **HTML, CSS, and JavaScript**.  
+It helps users manage daily tasks efficiently with features like task editing, completion tracking, and persistent storage using the browser’s Local Storage.
 
 ---
 
 ## 🚀 Features
 
-- ➕ Add new tasks
-- ✅ Mark tasks as completed with a checkbox
-- ❌ Delete individual tasks
-- 🧹 Clear all tasks with one click
-- 📊 Live task counter
-- 💾 Save tasks using **Local Storage**
-- ⌨️ Press **Enter** to quickly add a task
-- 🎨 Simple and clean user interface
+- ➕ Add new tasks  
+- ✏️ Edit existing tasks  
+- ✅ Mark tasks as completed  
+- ❌ Delete individual tasks  
+- 🧹 Clear all tasks  
+- 📊 Live task counter  
+- 💾 Data persistence using Local Storage  
+- ⌨️ Add tasks quickly using the **Enter key**  
+- 🎨 Modern and responsive UI with hover effects  
 
 ---
 
-## 🛠️ Technologies Used
+## 🖼️ Preview
 
-- **HTML5** – Structure of the application
-- **CSS3** – Styling and layout
-- **JavaScript (Vanilla JS)** – Application logic and DOM manipulation
-- **Local Storage API** – Data persistence in the browser
+<img src="img/UI.png" width="500">
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** – Structure  
+- **CSS3** – Styling & UI design  
+- **JavaScript (Vanilla JS)** – Logic & DOM manipulation  
+- **Local Storage API** – Persistent data storage  
+
+---
+
+## 📚 What I Learned
+
+- DOM manipulation and event delegation  
+- Handling user interactions (click, blur, key events)  
+- Working with Local Storage for data persistence  
+- Building interactive UI components  
+- Improving UI/UX with modern CSS  
+
+---
+
+## ⚡ Future Improvements
+
+- Store tasks as structured data (JSON) instead of innerHTML  
+- Add task filters (All / Completed / Pending)  
+- Add animations for better UX  
+- Convert into a React-based application  
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
