@@ -59,25 +59,6 @@ clear.addEventListener("click", () => {
   }
 });
 
-// Edit the Todo
-todoList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("edit")) {
-    const label = e.target.parentElement.querySelector(".task-label");
-
-    label.contentEditable = true;
-    label.focus();
-
-    label.onblur = () => {
-      if (label.textContent.trim() === "") {
-        label.textContent = "Untitled Task";
-      }
-
-      label.contentEditable = false;
-      updateUI();
-    };
-  }
-});
-
 // Enter key
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
