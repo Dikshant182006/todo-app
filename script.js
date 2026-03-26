@@ -22,7 +22,6 @@ addbtn.addEventListener("click", () => {
   li.innerHTML = `
     <input type="checkbox" id="${unique}">
     <span class="task-label">${taskText}</span>
-    <img src="img/edit.svg" alt="edit" width="20px" class="edit">
     <button class="deletebtn">Delete</button>
   `;
 
@@ -39,7 +38,7 @@ todoList.addEventListener("click", (e) => {
   }
 
   if (e.target.type === "checkbox") {
-    const label = e.target.nextElementSibling;
+    const label = e.target.parentElement.querySelector(".task-label");
 
     label.style.textDecoration = e.target.checked ? "line-through" : "none";
 
