@@ -19,6 +19,11 @@ It helps users manage daily tasks efficiently with features like task editing, c
 
 ---
 
+## 🚀 Live Demo
+👉 https://todo-app-dikshant.netlify.app/
+
+---
+
 ## 🖼️ Preview
 
 <img src="img/UI.png" width="500">
