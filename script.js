@@ -32,9 +32,11 @@ addbtn.addEventListener("click", () => {
 
 // Delete & Checkbox Logic
 todoList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("deletebtn")) {
-    e.target.parentElement.remove();
-    updateUI();
+  if(confirm("Are you sure you want to delete the todo?")) {
+    if (e.target.classList.contains("deletebtn")) {
+      e.target.parentElement.remove();
+      updateUI();
+  }
   }
 
   if (e.target.type === "checkbox") {
